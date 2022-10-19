@@ -1,4 +1,6 @@
 'use strict';
+
+/*
 // function
 
 // function defination
@@ -23,3 +25,24 @@ function fruitProcessor(appels,oranges) {
 const juice = fruitProcessor(8,7);
 console.log(juice);
 console.log(fruitProcessor(2,4));
+
+*/
+
+//function declearition
+//we can call function before declearation
+function calAge1(brithYear) {
+    return 2022 - brithYear;
+}
+const age1 = calAge1(2002);
+
+
+
+//function expression
+//we can't call function before expression
+const calAge2 = function (brithYear) {  //anonaymys function
+    return 2022 - brithYear; 
+}
+const age2 = calAge2(2020);
+
+console.log(age1);
+console.log(age2);
