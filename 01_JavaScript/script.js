@@ -28,6 +28,12 @@ console.log(fruitProcessor(2,4));
 
 */
 
+/*
+
+//function expression
+
+
+
 //function declearition
 //we can call function before declearation
 function calAge1(brithYear) {
@@ -46,3 +52,34 @@ const age2 = calAge2(2020);
 
 console.log(age1);
 console.log(age2);
+
+*/
+
+
+
+
+//arrow function
+
+const calAge3 =  birthYear => 2022 - birthYear; //for one parameter
+
+const age3 = calAge3(2002);
+console.log(age3);
+
+
+const isElegable = (birthYear,name) =>{
+    const age = 2022 - birthYear;
+    let temp;
+    if (age >= 18) {
+       temp = "elegable";
+    }else{
+        temp = "not elegable";
+    }
+
+
+    return `${name} is ${temp}`;     
+}
+
+
+console.log(isElegable(2002,"Suman"));
+console.log(isElegable(2012,"Jhon"));
+
