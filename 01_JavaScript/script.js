@@ -303,3 +303,52 @@ console.log(tips);
 console.log(total);
 
 */
+
+
+/*
+
+//Object
+const myData = {
+    "fname":"Suman",
+    "lname":"Dhali",
+    "age":2022-2002,
+    "job":"student",
+    "friends":['Ariysh','Subhodip','Subham','Sneha'],
+}
+
+console.log(myData);
+// dot notation
+console.log(myData.lname);
+// bracket notatioin
+console.log(myData['lname']);
+
+// we can create expression in bracket notation
+const nameKey = 'name';
+console.log(myData['f'+nameKey]);
+console.log(myData['l'+nameKey]);
+
+//not possible 
+// console.log(myData.'l' + nameKey);
+
+
+// const data = prompt("What you want to know ?");
+
+// if (myData[data]) {
+//     console.log(myData[data]);
+// }else{
+//     console.log('Wrong request');
+// }
+
+
+// add properties
+
+myData.location = "Kolkata";
+myData.website = "https://sumandhali.online";;
+
+
+console.log(myData);
+
+console.log(`${myData.fname} has ${myData.friends.length} friends, and best friend is called ${myData.friends[1]}`);
+
+
+*/
