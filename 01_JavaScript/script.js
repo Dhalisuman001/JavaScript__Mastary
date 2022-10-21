@@ -384,7 +384,7 @@ for (let i = 0; i < myData.length; i++) {
 }
 console.log(types);
 
-*/
+
 
 
 
@@ -396,8 +396,19 @@ const myData = [ "Suman",
 true,]
    
 
-//loop backwords
+//loop
+//  backwords
 for (let i = myData.length -1; i >= 0; i--) {
     console.log(myData[i]); 
     
 }
+
+// while loop
+let i = 0;
+while (i<myData.length) {
+    console.log(myData[i]);
+
+    i++;
+}
+
+*/
