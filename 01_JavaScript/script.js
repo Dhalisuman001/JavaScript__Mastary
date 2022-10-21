@@ -353,7 +353,7 @@ console.log(`${myData.fname} has ${myData.friends.length} friends, and best frie
 
 */
 
-
+/*
 // Loop
 
 // for loop
@@ -384,5 +384,20 @@ for (let i = 0; i < myData.length; i++) {
 }
 console.log(types);
 
+*/
 
 
+
+const myData = [ "Suman",
+"Dhali",
+2022-2002,
+"student",
+['Ariysh','Subhodip','Subham','Sneha'],
+true,]
+   
+
+//loop backwords
+for (let i = myData.length -1; i >= 0; i--) {
+    console.log(myData[i]); 
+    
+}
