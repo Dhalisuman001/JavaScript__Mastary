@@ -352,3 +352,37 @@ console.log(`${myData.fname} has ${myData.friends.length} friends, and best frie
 
 
 */
+
+
+// Loop
+
+// for loop
+/// break, print until 10
+for (let rep = 1; rep <= 100; rep++) {
+    if(rep>=11) break;
+     console.log(`Lifting weight repetition ${rep} 😎`);
+    
+}
+
+
+const myData = [ "Suman",
+"Dhali",
+2022-2002,
+"student",
+['Ariysh','Subhodip','Subham','Sneha'],
+true,]
+   
+const types = [];
+
+for (let i = 0; i < myData.length; i++) {
+    // only string will print
+    if(typeof myData[i] !== 'string') continue;
+
+    console.log(myData[i]); 
+    types.push(typeof myData[i]);
+    
+}
+console.log(types);
+
+
+
