@@ -465,7 +465,7 @@ if (jhonBmi > markBmi) {
 */
 
 
-
+/*
 
 //Coding challange -->4
 // Let's improve Steven's tip calculator even more, this time using loops!
@@ -517,3 +517,5 @@ const calTip = (bills) =>{
 calTip(bills);
 console.log(totals);
 console.log(tips);
+
+*/
