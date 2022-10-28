@@ -46,8 +46,66 @@ const restaurant = {
       `
     );
   },
+  orderPasta: function (in1, in2, in3) {
+    console.log(`Here are your pasta ${in1}, ${in2} and ${in3}`);
+  },
 };
 
+/*
+// spread operator
+
+const arr = [4, 5, 7];
+
+//old way
+// const newArr = [8, 9, arr[0], arr[1], arr[2]];
+
+// modern way
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+// Display individually
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Momo'];
+console.log(newMenu);
+
+//copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+//Iterables: arrays,strings,maps,sets, not object
+// string
+const str = 'Suman';
+const letters = [...str, ' ', 'D.'];
+console.log(...letters);
+console.log(...str);
+// console.log(`${...str} `); not work
+
+// const ing = [
+//   prompt('Lets make pasta! Ingredient1?'),
+//   prompt('Lets make pasta! Ingredient2?'),
+//   prompt('Lets make pasta! Ingredient3?'),
+// ];
+// console.log(ing);
+// restaurant.orderPasta(...ing);
+
+//objects
+const newResturent = { ...restaurant, founder: 'Suman Dhali' };
+console.log(newResturent);
+
+// copy object using spread object
+const copyResturent = { ...restaurant };
+copyResturent.name = 'Rehagar';
+
+// old object can't change
+console.log(copyResturent.name);
+console.log(restaurant.name);
+
+*/
+
+/*
 // argument object destructuring
 restaurant.orderDelivery({
   time: '22.30pm',
@@ -77,6 +135,7 @@ const {
 } = openHour;
 
 console.log(o, c);
+*/
 
 /*
 // destructring arrays
