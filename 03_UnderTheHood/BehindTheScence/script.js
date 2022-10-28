@@ -158,6 +158,7 @@ jhon.calcAge();
 Suman.greet();
 */
 
+/*
 // argument keyword
 function addD(a, b) {
   console.log(arguments);
@@ -166,3 +167,47 @@ function addD(a, b) {
 }
 
 addD(7, 8, 7, 9, 23, -9.7, 'Suman');
+*/
+
+// premittave data types
+let lastName = 'Dhali';
+let oldLastName = lastName;
+lastName = 'Bravis';
+
+console.log(lastName);
+console.log(oldLastName);
+
+// reference types
+const Anuska = {
+  firstName: 'Anuska',
+  lastName: 'Sharma',
+  age: 31,
+};
+
+const AnuskaKholi = Anuska;
+AnuskaKholi.lastName = 'Kholi';
+
+// same output ???
+// --> both are same object;
+console.log('Before marrage: ', Anuska);
+console.log('After marrage: ', AnuskaKholi);
+
+//copying object
+const Anuska2 = {
+  firstName: 'Anuska',
+  lastName: 'Sharma',
+  age: 31,
+  family: ['alice', 'bob'],
+};
+
+const AnuskaKholi2 = Object.assign({}, Anuska2);
+AnuskaKholi2.lastName = 'Kholi';
+AnuskaKholi2.family.push('virat');
+AnuskaKholi2.family.push('chiku');
+
+// same output ???
+// --> both are different object;
+console.log('Before marrage: ', Anuska2);
+console.log('After marrage: ', AnuskaKholi2);
+// inner array are same
+// inorder to deep cloning the object we need external lribray
