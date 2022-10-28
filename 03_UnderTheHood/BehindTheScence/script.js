@@ -15,6 +15,7 @@ Behind the */
 
 // scop chaining
 
+/*
 const calcAge = brithYear => {
   // function scope
   const age = 2022 - brithYear;
@@ -55,3 +56,49 @@ const firstName = 'Suman';
 calcAge(2002);
 // console.log(age);// can't acess age variable
 // printAge(); // can't acess printAge() function
+*/
+
+//Temporal Dead zone
+
+console.log(me); // undefined
+// console.log(job);// can't access job before initialiazition
+// console.log(year); // can't access year before initialiazition
+
+var me = 'Jonas';
+let job = 'Student';
+const year = 20;
+
+// invoking
+console.log(addD(2, 3));
+// console.log(addE(2, 3)); can't access addE before initialiazition
+
+/*
+console.log(addA(2, 3));
+initally var is undefined .
+and if we call addA before declearition
+it will not act as a function expression.
+insted it will act as a variale
+so it will produce error: addA is not a function
+
+*/
+
+// function declearition
+function addD(a, b) {
+  return a + b;
+}
+
+// function expression
+const addE = function add(a, b) {
+  return a + b;
+};
+
+// using var
+var addA = (a, b) => a + b;
+
+var x = 1; // create a window instence
+const y = 1;
+let z = 1;
+
+console.log(x === window.x);
+console.log(y === window.y);
+console.log(z === window.z);
