@@ -30,8 +30,55 @@ const restaurant = {
       close: 24,
     },
   },
+  orderDelivery: function ({
+    startIndex = 1,
+    mianIndex = 1,
+    time = '9am',
+    address = 'None',
+  }) {
+    console.log(
+      `Order recived! ${this.starterMenu[startIndex]} and ${this.mainMenu[mianIndex]}`
+    );
+    console.log(
+      `Time ${time}
+       Address:
+         Village: ${address},
+      `
+    );
+  },
 };
 
+// argument object destructuring
+restaurant.orderDelivery({
+  time: '22.30pm',
+  mianIndex: 2,
+  startIndex: 2,
+});
+
+// object destructure
+// name destructuring
+const { name, openingHours: openHour, categories } = restaurant;
+console.log(name, openHour, categories);
+
+// default values
+const { menu = [], starterMenu: startMenu = [] } = restaurant;
+console.log(menu, startMenu);
+
+// mutating value
+let a = 11;
+let b = 99;
+const obj = { a: 23, b: 7, c: 89 };
+({ a, b } = obj);
+console.log(a, b);
+
+// nested object
+const {
+  fri: { open: o, close: c },
+} = openHour;
+
+console.log(o, c);
+
+/*
 // destructring arrays
 const arr = [2, 3, 4];
 const a = arr[0];
@@ -70,3 +117,4 @@ console.log(i, j, k);
 // default values
 const [n1 = 7, n2 = 4, n3 = 1] = [8, 0];
 console.log(n1, n2, n3);
+*/
