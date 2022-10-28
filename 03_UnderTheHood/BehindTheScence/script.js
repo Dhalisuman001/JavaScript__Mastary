@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 /* How Java Script work?
 Behind the */
@@ -58,6 +58,7 @@ calcAge(2002);
 // printAge(); // can't acess printAge() function
 */
 
+/*
 //Temporal Dead zone
 
 console.log(me); // undefined
@@ -72,15 +73,15 @@ const year = 20;
 console.log(addD(2, 3));
 // console.log(addE(2, 3)); can't access addE before initialiazition
 
-/*
-console.log(addA(2, 3));
-initally var is undefined .
-and if we call addA before declearition
-it will not act as a function expression.
-insted it will act as a variale
-so it will produce error: addA is not a function
 
-*/
+// console.log(addA(2, 3));
+// initally var is undefined .
+// and if we call addA before declearition
+// it will not act as a function expression.
+// insted it will act as a variale
+// so it will produce error: addA is not a function
+
+
 
 // function declearition
 function addD(a, b) {
@@ -102,3 +103,51 @@ let z = 1;
 console.log(x === window.x);
 console.log(y === window.y);
 console.log(z === window.z);
+
+
+*/
+
+//This keyword
+
+console.log(this);
+// this keyword will show window object in global scope
+
+function calcAge(brithYear) {
+  // this keyword will show undefined in function decleartion
+  // * use strict
+  console.log(this);
+}
+const calcAgeE = function (brithYear) {
+  // this keyword will show undefined in function decleartion
+  // * use strict
+  console.log(this);
+};
+const calcAgeA = brithYear => {
+  // tarrow function use this keyword of parent scope
+
+  // * use strict
+  console.log(this);
+};
+
+calcAge(2002);
+calcAgeE(2002);
+calcAgeA(2002);
+
+const Suman = {
+  year: 2002,
+  calcAge: function () {
+    console.log(this);
+    console.log(2022 - this.year);
+  },
+};
+// show the parent age
+Suman.calcAge();
+
+const jhon = {
+  year: 2000,
+};
+// method borrowing
+jhon.calcAge = Suman.calcAge;
+jhon.calcAge();
+
+const f = Suman.calcAge;
