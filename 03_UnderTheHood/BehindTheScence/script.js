@@ -107,6 +107,8 @@ console.log(z === window.z);
 
 */
 
+/*
+
 //This keyword
 
 console.log(this);
@@ -134,13 +136,16 @@ calcAgeE(2002);
 calcAgeA(2002);
 
 const Suman = {
+  firstName: 'Suman',
   year: 2002,
   calcAge: function () {
     console.log(this);
     console.log(2022 - this.year);
   },
+  // this.first name won't work
+  greet: () => console.log(`hey ${this.firstName}`),
 };
-// show the parent age
+// show the parent object
 Suman.calcAge();
 
 const jhon = {
@@ -150,4 +155,14 @@ const jhon = {
 jhon.calcAge = Suman.calcAge;
 jhon.calcAge();
 
-const f = Suman.calcAge;
+Suman.greet();
+*/
+
+// argument keyword
+function addD(a, b) {
+  console.log(arguments);
+  // won't work for arrow function
+  return a + b;
+}
+
+addD(7, 8, 7, 9, 23, -9.7, 'Suman');
