@@ -55,6 +55,32 @@ const restaurant = {
   },
 };
 
+//------ Or --------
+
+// Short cuircuiting
+console.log(3 || 'Suman');
+console.log('' || 'Suman'); //falsy value
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'hello' || 23 || null);
+
+// restaurant.numGuests = 23;
+const guest1 = restaurant.numGuests || 10;
+console.log(guest1);
+
+//using ternary
+const guest2 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest2);
+
+// ------ And -------
+//return falsey value if the first one is false
+console.log(0 && 'Suman');
+//return falsey value if the value is false
+console.log('hello' && 23 && null && 'Suman');
+
+restaurant.order && restaurant.orderPizza('Mushrooms', 'Chicken');
+
+/*
 // rest pattren
 // spread right side of '='
 const arr = [1, 2, ...[3, 4]];
@@ -88,6 +114,7 @@ const eArr = [67, 12, 93, 18];
 console.log(add(...eArr));
 
 restaurant.orderPizza('mushrooms', 'onion', 'chicken', 'cheez', 'olives');
+*/
 
 /*
 // spread operator
