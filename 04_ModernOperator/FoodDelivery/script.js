@@ -4,6 +4,21 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -15,22 +30,9 @@ const restaurant = {
   order: function (startIndex, mianIndex) {
     return [this.starterMenu[startIndex], this.mainMenu[mianIndex]];
   },
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-  orderDelivery: function ({
+  //ES6 enhance object litarls
+  openingHours,
+  orderDelivery({
     startIndex = 1,
     mianIndex = 1,
     time = '9am',
@@ -46,14 +48,83 @@ const restaurant = {
       `
     );
   },
-  orderPasta: function (in1, in2, in3) {
+  orderPasta(in1, in2, in3) {
     console.log(`Here are your pasta ${in1}, ${in2} and ${in3}`);
   },
-  orderPizza: function (mainIng, ...otherIng) {
+  orderPizza(mainIng, ...otherIng) {
     console.log(mainIng);
     console.log(otherIng);
   },
 };
+
+// optional chaning
+
+// console.log(restaurant.openingHours.mon?.open); //error
+//solution:
+
+// traditional way
+console.log(restaurant.openingHours.mon && restaurant.openingHours.mon.open);
+
+//modern way
+console.log(restaurant.openingHours.mon?.open);
+
+//example
+const weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// for of loop
+for (const item of weekDays) {
+  // chaining and nullish operator
+  const open = restaurant.openingHours[item]?.open ?? 'closed';
+  console.log(`On ${item}, we open at ${open}`);
+}
+
+// method
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+
+const game = [
+  {
+    team1: 'Bayern Munich',
+    team2: 'Borrussia Dortmund',
+    players: [
+      [
+        'Neuer',
+        'Pavard',
+        'Martinez',
+        'Alaba',
+        'Davies',
+        'Kimmich',
+        'Goretzka',
+        'Coman',
+        'Muller',
+        'Gnarby',
+        'Lewandowski',
+      ],
+      [
+        'Burki',
+        'Schulz',
+        'Hummels',
+        'Akanji',
+        'Hakimi',
+        'Weigl',
+        'Witsel',
+        'Hazard',
+        'Brandt',
+        'Sancho',
+        'Gotze',
+      ],
+    ],
+    score: '4:0',
+    scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+    date: 'Nov 9th, 2037',
+    odds: {
+      team1: 1.33,
+      x: 3.25,
+      team2: 6.5,
+    },
+  },
+];
+// arrays
+console.log(game[0]?.players[0]);
 
 //coding challange -->1
 // 1. Create one player array for each team (variables 'players1' and
@@ -79,6 +150,7 @@ const restaurant = {
 // Then, call the function again with players from game.scored
 // GOOD LUCK
 
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -153,6 +225,8 @@ printGoals(...game.scored);
 //7.
 team1 > team2 && console.log('Team1 is more likily to win');
 team1 < team2 && console.log('Team2 is more likily to win');
+
+*/
 
 /*
 // nullish coalsing operator
