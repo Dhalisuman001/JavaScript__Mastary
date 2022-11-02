@@ -54,10 +54,21 @@ const restaurant = {
     console.log(otherIng);
   },
 };
+// nullish coalsing operator
+
+restaurant.numGuests = 0;
+const guest1 = restaurant.numGuests || 10;
+console.log(guest1);
+
+//using ternary
+const guest2 = restaurant.numGuests ?? 10;
+console.log(guest2);
+
+/*
+// Short cuircuiting(&&,||)
 
 //------ Or --------
 
-// Short cuircuiting
 console.log(3 || 'Suman');
 console.log('' || 'Suman'); //falsy value
 console.log(true || 0);
@@ -79,6 +90,9 @@ console.log(0 && 'Suman');
 console.log('hello' && 23 && null && 'Suman');
 
 restaurant.order && restaurant.orderPizza('Mushrooms', 'Chicken');
+
+
+*/
 
 /*
 // rest pattren
