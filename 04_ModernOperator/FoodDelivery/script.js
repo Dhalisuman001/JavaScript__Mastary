@@ -49,7 +49,45 @@ const restaurant = {
   orderPasta: function (in1, in2, in3) {
     console.log(`Here are your pasta ${in1}, ${in2} and ${in3}`);
   },
+  orderPizza: function (mainIng, ...otherIng) {
+    console.log(mainIng);
+    console.log(otherIng);
+  },
 };
+
+// rest pattren
+// spread right side of '='
+const arr = [1, 2, ...[3, 4]];
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+// rest pattren must be the last element.
+const [pizza, risato, ...oth] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risato, oth);
+
+// rest with object
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// rest in fucntion
+const add = (...a) => {
+  let sum = 0;
+  console.log(a);
+  a.forEach(element => {
+    sum += element;
+  });
+  return sum;
+};
+console.log(add(6, 8, 3, 8.9, 10));
+console.log(add(6, 8, 10));
+
+const eArr = [67, 12, 93, 18];
+console.log(add(...eArr));
+
+restaurant.orderPizza('mushrooms', 'onion', 'chicken', 'cheez', 'olives');
 
 /*
 // spread operator
