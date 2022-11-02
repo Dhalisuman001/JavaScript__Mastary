@@ -56,7 +56,29 @@ const restaurant = {
     console.log(otherIng);
   },
 };
+// loop over object
+//object keys
+const attr = Object.keys(openingHours);
+let OpenStr = `We are open on ${attr.length} days: `;
 
+attr.forEach(element => {
+  OpenStr += `${element}, `;
+});
+console.log(OpenStr);
+
+// Object values
+const values = Object.values(openingHours);
+console.log(values);
+
+// Object name and value
+const entry = Object.entries(openingHours);
+console.log(entry);
+
+entry.forEach(([key, { open, close }]) => {
+  console.log(`On ${key}: we open at ${open} and close at ${close}`);
+});
+
+/*
 // optional chaning
 
 // console.log(restaurant.openingHours.mon?.open); //error
@@ -125,6 +147,7 @@ const game = [
 ];
 // arrays
 console.log(game[0]?.players[0]);
+*/
 
 //coding challange -->1
 // 1. Create one player array for each team (variables 'players1' and
