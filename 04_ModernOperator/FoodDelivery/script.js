@@ -56,7 +56,73 @@ const restaurant = {
     console.log(otherIng);
   },
 };
+// maps --> key value pairs
+const rest = new Map();
+rest.set('name', 'Shoppable');
+rest.set(1, 'Kolkata');
+console.log(rest.set(2, 'Delhi'));
 
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open: D')
+  .set(false, 'We are close: (');
+
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// has method
+console.log(rest.has('categories'));
+
+// delete method
+rest.delete(2);
+
+// size method
+console.log(rest.size);
+
+// clear method
+
+const arr = [3, 4];
+rest.set(arr, 'Array');
+
+console.log(rest.get(arr));
+console.log(rest);
+
+const quiz = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['Correct', 3],
+  [true, 'Correct 🥳'],
+  [false, 'Try again!'],
+]);
+
+console.log(quiz);
+
+//convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+
+console.log(hoursMap);
+
+console.log(quiz.get('question'));
+for (const [key, value] of quiz) {
+  typeof key === 'number' ? console.log(`Option ${key}: ${value}`) : null;
+}
+
+// const answare = Number(prompt('Your choise? '));
+const answare = 3;
+console.log(quiz.get(quiz.get('Correct') === answare));
+
+//convert back to array
+console.log([...quiz]);
+
+/*
 // set --> unordered Collection of unique value
 
 // set of array
@@ -97,6 +163,7 @@ for (const order of orderSet) console.log(order);
 const staff = ['Waiter', 'Chef', 'Manager', 'Chef', 'Waiter'];
 const uniqueStaff = [...new Set(staff)];
 console.log(uniqueStaff);
+*/
 
 /*
 //Coding challange -->2
