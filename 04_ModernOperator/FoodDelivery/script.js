@@ -56,6 +56,49 @@ const restaurant = {
     console.log(otherIng);
   },
 };
+
+// set --> unordered Collection of unique value
+
+// set of array
+const orderSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Risato',
+  'Pizza',
+  'Pasta',
+  'Pizza',
+]);
+// set of string
+console.log(new Set('Suman'));
+
+console.log(orderSet);
+//size
+console.log(orderSet.size);
+// exist or not
+console.log(orderSet.has('Pasta'));
+console.log(orderSet.has('Bread'));
+// add
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread'); //ignored
+console.log(orderSet);
+
+//delete
+orderSet.delete('Garlic Bread');
+console.log(orderSet);
+
+//empty
+// orderSet.clear();
+// console.log(orderSet);
+
+//looping
+for (const order of orderSet) console.log(order);
+
+//Example
+const staff = ['Waiter', 'Chef', 'Manager', 'Chef', 'Waiter'];
+const uniqueStaff = [...new Set(staff)];
+console.log(uniqueStaff);
+
+/*
 //Coding challange -->2
 // 1. Loop over the game.scored array and print each player name to the console,
 // along with the goal number (Example: "Goal 1: Lewandowski")
@@ -146,6 +189,8 @@ for (const value of game.scored) {
   scores[value] ? scores[value]++ : (scores[value] = 1);
 }
 console.log(scores);
+
+*/
 
 /*
 // loop over object
