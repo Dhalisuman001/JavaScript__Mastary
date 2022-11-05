@@ -56,6 +56,147 @@ const restaurant = {
     console.log(otherIng);
   },
 };
+
+// -->String
+
+const airline = 'Tap Air India';
+const plain = 'A320';
+
+// string indexes
+console.log(airline[1]);
+console.log(plain[0]);
+
+console.log('B78ES'[3]);
+
+//size
+console.log(plain.length);
+console.log('B78ES'.length);
+
+//indexOf
+console.log(airline.indexOf('r')); // give first appearence
+console.log(airline.lastIndexOf('a')); // give last appearence
+
+//slice method
+console.log(airline.slice(4)); // start form 4
+console.log(airline.slice(4, 7)); // start form 4 to 7
+
+// useage
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+//negative
+console.log(airline.slice(-3));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = seat => {
+  // B and E are middle seat
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got a middle seat! 😎');
+};
+
+checkMiddleSeat('23E');
+checkMiddleSeat('7A');
+checkMiddleSeat('11B');
+
+// String is a primmative data types,
+// When ever we call methods on string
+//interpreter convert string into string Object
+
+console.log(new String('Hello World!'));
+console.log(typeof 'Hello World!'); // string
+console.log(typeof new String('Suman!')); //string object
+
+// changing cases
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+//excercise
+const passenger = 'jHoN';
+const lowerCase = passenger.toLowerCase();
+const properCase = lowerCase[0].toUpperCase() + lowerCase.slice(1);
+console.log(properCase);
+
+//Comparing email
+const email = 'dhalisuman001@gmail.com';
+const inputEmail = ' DhaliSuman001@Gmail.com \n';
+
+const normaliseEmail = inputEmail.toLowerCase().trim();
+console.log(normaliseEmail);
+console.log(normaliseEmail == email);
+
+// replacing
+const priceGB = '288,97£';
+const priceUSA = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUSA);
+const str1 =
+  'Tommrow Zimbabwa will face mighty India and Netherland will mighty South Africa';
+// console.log(str1.replace('mighty', ''));
+console.log(str1.replaceAll('mighty', ''));
+
+//Boolean
+console.log(str1.includes('Zimbabwa'));
+console.log(str1.startsWith('Tommrow'));
+
+// Excersice
+const checkTheBaggage = items => {
+  const bagage = items.toLowerCase();
+
+  if (
+    bagage.includes('gun') ||
+    bagage.includes('knife') ||
+    bagage.includes('drug')
+  ) {
+    console.log('You are not allowed in this place');
+  } else {
+    console.log('Welcome here');
+  }
+};
+
+checkTheBaggage('I have a laptop, KnIfE');
+checkTheBaggage('I have a laptop, headphone and shirts');
+checkTheBaggage('I have not smuggiling drug');
+checkTheBaggage('I have a licenced gun and food');
+
+// split
+const arr1 = 'You are not allowed in this place'.split(' ');
+console.log(arr1);
+
+const [firstName, lastName] = 'Suman Dhali'.split(' ');
+
+// join
+const finalName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(finalName);
+
+// excercise
+const nameConvert = name => {
+  const names = name.toLowerCase().split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+nameConvert('vIraT dHoNI SUrya hARDik');
+
+//padding
+console.log('Suman'.padStart(7, ' ').padEnd(9, ' '));
+
+// excercise
+const maskAddhar = number => {
+  const endsDigit = number + '';
+  const masked = endsDigit.slice(-4).padStart(endsDigit.length, '*');
+  console.log(masked);
+};
+maskAddhar(622153475847);
+maskAddhar('622153475847');
+
+// repeat
+const msg = 'Welcome to JavaScript.. ';
+const repeated = msg.repeat(5);
+console.log(repeated);
+
+/*
 // maps --> key value pairs
 const rest = new Map();
 rest.set('name', 'Shoppable');
@@ -121,6 +262,8 @@ console.log(quiz.get(quiz.get('Correct') === answare));
 
 //convert back to array
 console.log([...quiz]);
+
+*/
 
 /*
 // set --> unordered Collection of unique value
