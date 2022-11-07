@@ -22,6 +22,7 @@ flightBooking('LH534');
 flightBooking('LP764', 2, 10000);
 */
 
+/*
 // passing value and reference
 const flightId = 'LH534';
 const MyData = {
@@ -43,3 +44,25 @@ const checkIn = (flightID, passenger) => {
 checkIn(flightId, MyData);
 console.log(flightId);
 console.log(MyData);
+
+*/
+
+// Higher order function
+
+const oneWord = str => {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = str => {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+const transformer = (str, func) => {
+  console.log(`Orginal String: ${str}`);
+  console.log(`Treansform String: ${func(str)}`);
+  console.log(`Transform By: ${func.name}`);
+};
+
+transformer('JavaScript is most used language!', upperFirstWord);
+transformer('JavaScript is most used language!', oneWord);
