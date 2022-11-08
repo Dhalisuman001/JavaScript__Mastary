@@ -47,6 +47,7 @@ console.log(MyData);
 
 */
 
+/*
 // Higher order function
 
 const oneWord = str => {
@@ -66,3 +67,64 @@ const transformer = (str, func) => {
 
 transformer('JavaScript is most used language!', upperFirstWord);
 transformer('JavaScript is most used language!', oneWord);
+
+*/
+// Function returning function
+const greet = greeting => {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+// const greet = greeting => name => console.log(`${greeting} ${name}`);
+
+const greetHey = greet('Hey');
+
+greetHey('Suman');
+greetHey('Rehniriya');
+
+//nested function revoking
+greet('Hello')('Jonas');
+
+// call and apply method
+
+const AirIndia = {
+  airline: 'Air India',
+  iataCode: 'AI',
+  booking: [],
+  book(flightId, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightId}`
+    );
+    this.booking.push({ flight: this.iataCode, flightId: flightId });
+    console.log(this.booking);
+  },
+};
+
+AirIndia.book('239', 'Jonas');
+AirIndia.book('216', 'Suman');
+
+const IndiGo = {
+  airline: 'Indi Go',
+  iataCode: 'IG',
+  booking: [],
+};
+
+// creating copy of a method, which converted into function
+const book = AirIndia.book;
+
+// dosent work
+// book('LP567', 'Martha');
+
+book.call(IndiGo, '567', 'Martha');
+
+const AirAsia = {
+  airline: 'Indi Go',
+  iataCode: 'IG',
+  booking: [],
+};
+
+const flightData = ['438', 'Agon'];
+// old way
+book.apply(AirAsia, flightData);
+//modern way
+book.call(AirAsia, ...flightData);
