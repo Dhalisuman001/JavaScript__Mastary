@@ -118,8 +118,8 @@ const book = AirIndia.book;
 book.call(IndiGo, '567', 'Martha');
 
 const AirAsia = {
-  airline: 'Indi Go',
-  iataCode: 'IG',
+  airline: 'Air Aisa',
+  iataCode: '2A',
   booking: [],
 };
 
@@ -128,3 +128,49 @@ const flightData = ['438', 'Agon'];
 book.apply(AirAsia, flightData);
 //modern way
 book.call(AirAsia, ...flightData);
+
+// Bind method
+// Bind method simply return the binded function
+
+const bookAir = book.bind(AirIndia);
+const bookInd = book.bind(IndiGo);
+const book2A = book.bind(AirAsia);
+
+bookInd(348, 'A-Train');
+
+// pre set argument
+const bookInd618 = book.bind(IndiGo, 618);
+bookInd618('Huighe');
+
+// with event listener
+AirIndia.planes = 300;
+AirIndia.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+// won't work
+// document.querySelector('.buy').addEventListener('click', AirIndia.buyPlane);
+document
+  .querySelector('.buy')
+  .addEventListener('click', AirIndia.buyPlane.bind(AirIndia));
+
+// partial
+const addTax = (rate, value) => value + rate * value;
+
+console.log(addTax(0.12, 900));
+
+const addGST = addTax.bind(null, 0.18);
+console.log(addGST(1999));
+
+// challenge
+const chAddTax = function (rate) {
+  return function (value) {
+    return value + rate * value;
+  };
+};
+
+const chAddGST = chAddTax(0.18);
+console.log(chAddGST(99));
