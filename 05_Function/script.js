@@ -178,6 +178,8 @@ const chAddGST = chAddTax(0.18);
 console.log(chAddGST(99));
 
 */
+
+/*
 //Coding challange -->1
 // Coding Challenge #1
 // Let's build a simple poll app!
@@ -247,3 +249,16 @@ const poll = {
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+
+*/
+
+//Immediately invoked function expression
+
+//1.
+(function () {
+  console.log('This will never run again');
+})();
+
+//2.
+(() => console.log('This will also never run again'))();
