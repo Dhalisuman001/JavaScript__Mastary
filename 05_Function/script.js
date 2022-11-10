@@ -265,3 +265,62 @@ document
 (() => console.log('This will also never run again'))();
 
 */
+//Closere
+
+// 1.
+const secureBooking = function () {
+  let passCount = 0;
+  return function () {
+    passCount++;
+    console.log(`${passCount} passenger`);
+  };
+};
+
+const booker = secureBooking();
+
+// passCount will increment ..
+booker();
+booker();
+booker();
+
+console.dir(booker);
+
+// .2
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+console.dir(f);
+
+// re -assign
+h();
+f();
+
+console.dir(f);
+
+// 3.
+const boardPass = function (n, wait) {
+  const perGrouip = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are three group each with ${perGrouip} passengers`);
+  }, 1000);
+  console.log(`We start boarding in ${wait} seconds`);
+};
+
+//closer are more priority then scope chain
+const perGrouip = 100;
+boardPass(180, 3);
