@@ -253,6 +253,7 @@ document
 
 */
 
+/*
 //Immediately invoked function expression
 
 //1.
@@ -262,3 +263,5 @@ document
 
 //2.
 (() => console.log('This will also never run again'))();
+
+*/
