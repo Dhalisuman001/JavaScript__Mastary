@@ -88,6 +88,8 @@ currenciesUnique.forEach((value, _, map) => {
 */
 /*
 
+
+
 // Coding challange -->1
 // Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners
 // about their dog's age, and stored the data into an array (one array for each). For
@@ -137,6 +139,24 @@ currenciesUnique.forEach((value, _, map) => {
 // checkDogs(dogsJulia.dataset1, dogsKate.dataset1);
 // checkDogs(dogsJulia.dataset2, dogsKate.dataset2);
 */
+
+/*
+//Array map
+
+// const birthYear = [1998, 2002, 1947, 2015, 1968, 1991, 1981, 2006, 2004, 1973];
+
+// const ages = birthYear.map(year => 2022 - year);
+// console.log(ages);
+*/
+
+// Array filter
+// const deposit = movements.filter(mov => {
+//   return mov > 0;
+// });
+const deposit = movements.filter(mov => mov > 0);
+const withdrawal = movements.filter(mov => mov < 0);
+console.log(withdrawal);
+console.log(deposit);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -218,3 +238,14 @@ const displayMovements = movements => {
 };
 displayMovements(account1.movements);
 // console.log(containerMovements.innerHTML);
+
+const createUserName = accounts => {
+  accounts.forEach(acc => {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUserName(accounts);
