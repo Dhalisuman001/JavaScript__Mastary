@@ -74,3 +74,76 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+/*
+// Array methods
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// 1. Slice --> won't muted original array
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
+console.log(arr.slice(-1));
+console.log(arr.slice(1, -2));
+// copy
+console.log([...arr]);
+
+//2.Splice --> muted original array
+// console.log(arr.splice(2));
+arr.splice(-1);
+console.log(arr);
+
+//3.Reverse --> muted original array
+let arr2 = [8, 9, 2, 7, 4, 0];
+arr2.reverse();
+console.log(arr2);
+
+//4.Concat -->won't muted original array
+const alphanumaric = arr.concat(arr2);
+console.log(alphanumaric);
+//alternative
+console.log([...arr, ...arr2]);
+
+//5.Concat -->won't muted original array
+console.log(alphanumaric.join(''));
+*/
+
+/*
+//looping -- ForEach
+
+//--> for of
+console.log('---FOR-OF---');
+// for (const m of movements) {
+for (const [i, m] of movements.entries()) {
+  if (m > 0) {
+    console.log(`Activity ${i + 1}: You deposited ${m}`);
+  } else {
+    console.log(`Activity ${i + 1}: You withdrew ${Math.abs(m)}`);
+  }
+}
+//--> forEach
+// break statement won't work in forEach
+console.log('---FOR-EACH---');
+movements.forEach((m, i, arr) => {
+  if (m > 0) {
+    console.log(`Activity ${i + 1}: You deposited ${m}`);
+  } else {
+    console.log(`Activity ${i + 1}: You withdrew ${Math.abs(m)}`);
+  }
+});
+
+// arr.forEach((element,index,array))
+
+// forEach on map
+// set dosen't have key
+currencies.forEach((value, key, map) => {
+  console.log(`${key}: ${value}`);
+});
+
+const currenciesUnique = new Set(['USD', 'RUB', 'INR', 'EUR', 'TK', 'EUR']);
+console.log(currenciesUnique);
+// set dosen't have key and index
+currenciesUnique.forEach((value, _, map) => {
+  console.log(`${value}: ${value}`);
+});
+*/
