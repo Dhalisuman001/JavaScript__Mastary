@@ -94,7 +94,7 @@ const displayMovements = function (movements, sort = false) {
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-        <div class="movements__value">${mov}€</div>
+        <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
 
@@ -111,12 +111,12 @@ const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes}€`;
+  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out)}€`;
+  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -126,7 +126,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 };
 
 const createUsernames = function (accs) {
@@ -164,7 +164,7 @@ btnLogin.addEventListener('click', function (e) {
   );
   console.log(currentAccount);
 
-  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+  if (currentAccount?.pin === +inputLoginPin.value) {
     // Display UI and message
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(' ')[0]
@@ -182,7 +182,7 @@ btnLogin.addEventListener('click', function (e) {
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
-  const amount = Number(inputTransferAmount.value);
+  const amount = +inputTransferAmount.value;
   const receiverAcc = accounts.find(
     acc => acc.username === inputTransferTo.value
   );
@@ -206,7 +206,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
@@ -223,7 +223,7 @@ btnClose.addEventListener('click', function (e) {
 
   if (
     inputCloseUsername.value === currentAccount.username &&
-    Number(inputClosePin.value) === currentAccount.pin
+    +inputClosePin.value === currentAccount.pin
   ) {
     const index = accounts.findIndex(
       acc => acc.username === currentAccount.username
@@ -251,3 +251,156 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+/*
+//Numbers
+// true
+console.log(23 === 23.0);
+
+// 0.30000 🤣🤣🤣🤣🤣
+console.log(0.1 + 0.2);
+
+// false 🤣🤣🤣🤣🤣
+console.log(0.1 + 0.2 === 0.3);
+
+//Conversion
+console.log(Number('23'));
+console.log(+'56');
+
+//Parsing
+console.log(Number.parseInt('300px', 10));
+
+// not gonna work
+console.log(Number.parseInt('s36px', 10));
+
+// integer
+console.log(Number.parseInt('2.5rem'));
+// float
+console.log(Number.parseFloat('2.5rem'));
+
+// Check not a number
+// false
+console.log(Number.isNaN(20));
+console.log(Number.isNaN('206'));
+console.log(Number.isNaN(23 / 0));
+//true
+console.log(Number.isNaN(+'20px'));
+
+// Check finite
+//true
+console.log(Number.isFinite(20));
+//false
+console.log(Number.isFinite('20'));
+console.log(Number.isFinite(+'20x'));
+console.log(Number.isFinite(23 / 0));
+
+//check int
+console.log(Number.isInteger(23));
+console.log(Number.isInteger(23 / 0));
+console.log(Number.isInteger(2.3));
+*/
+
+/*
+///Math function
+
+// Square root
+console.log(Math.sqrt(25)); //5
+console.log(25 ** (1 / 2)); //5
+//Cubic root
+console.log(25 ** (1 / 3)); //2.93
+
+//Max
+console.log(Math.max(5, 1, 9, 34, 24)); //34
+console.log(Math.max(5, 1, 9, '34', 24)); //34
+console.log(Math.max(5, 1, 9, '34p', 24)); //NaN
+
+//min
+console.log(Math.min(5, 1, 9, 34, 24)); //1
+console.log(Math.min(5, 1, 9, '34', 24)); //1
+console.log(Math.min(5, 1, 9, '34p', 24)); //NaN
+
+//PI
+//area of a circle
+console.log(Math.PI * Number.parseFloat('10px') ** 2);
+
+//Random + Trunc
+console.log(Math.random()); // 0-1 float
+console.log(Math.random() * 10); // 0-10 float
+console.log(Math.trunc(Math.random() * 20) + 1); // 1-20 int
+
+///Genaral functiob
+const randomNumber = (min, max) =>
+  Math.trunc(Math.random() * (max - min) + min);
+
+console.log(randomNumber(10, 20));
+
+// Rounding to integer
+//trunc
+console.log(Math.trunc(23.3));
+console.log(Math.trunc(23.9));
+
+//round
+console.log(Math.round(23.9));
+console.log(Math.round(23.3));
+
+//ceil
+console.log(Math.ceil(23.4));
+console.log(Math.ceil(23.6));
+
+//floor
+console.log(Math.floor(23.6));
+console.log(Math.floor(23.1));
+
+//Rounding float
+console.log((2.7).toFixed(0));
+console.log((2.7).toFixed(3));
+console.log((2.76).toFixed(2));
+*/
+
+/*
+//Reminder Operator
+console.log(5 % 2); //1
+console.log(5 / 2); //2.5
+
+console.log(8 % 3); //2
+console.log(8 / 3); //2.666
+
+console.log(6 % 2); //0 even
+console.log(7 % 2); //1 odd
+
+// even or not
+const isOdd = num => num % 2 === 1;
+console.log(isOdd(3));
+console.log(isOdd(14));
+
+labelBalance.addEventListener('click', () => {
+  [...document.querySelectorAll('.movements__row')].forEach((mov, i) => {
+    if (i % 2 === 0) {
+      mov.style.backgroundColor = 'orangered';
+    }
+    if (i % 3 === 0) {
+      mov.style.backgroundColor = 'blue';
+    }
+  });
+});
+*/
+
+//Big Int
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1); //unsafe
+console.log(2 ** 53 + 3); //unsafe
+
+console.log(932047197409174187392731n);
+console.log(BigInt(932047197409174187392731n));
+
+//operation
+
+console.log(1000n + 2000n); //valid
+// console.log(1000n + 2000);error
+
+//expressioon
+console.log(20n > 15);
+console.log(20n === 20); // not equal
+console.log(20n == 20); //  equal
+console.log(typeof 20n); //BigInt
